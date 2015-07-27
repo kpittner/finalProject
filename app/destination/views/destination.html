@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Enter a Destination</div>
+    <div class="panel-body">
+      <div class="myMapRow">
+        <div class="angular-google-map-container">
+          <ui-gmap-google-map center='map.center' zoom='map.zoom' class='angular-google-map-container'></ui-gmap-google-map>
+        </div>
+        <div class="individualPlaceDest">
+          <a class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(location)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></a>
+          <h2>Germany</h2>
+          <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam...</p></div>
+        </div>
+        <div class="flightInfo">
+          <h2>Let's Go!</h2>
+          <p>Flight Info</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
