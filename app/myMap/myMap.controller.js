@@ -37,57 +37,6 @@ var long;
               }
           }
       };
-      // var events = {
-      //     places_changed: function (searchBox) {
-      //         var place = searchBox.getPlaces();
-      //         lat = place[0].geometry.location.lat();
-      //         long = place[0].geometry.location.lng();
-      //         if (!place || place == 'undefined' || place.length == 0) {
-      //             return;
-      //         }
-      //
-      //         PlaceService.getBars(lat, long).then(function(data) {
-      //           $scope.places = data;
-      //
-      //         });
-      //
-      //         if($routeParams.placeId) {
-      //           PlaceService.getSingleBar($routeParams.placeId).then(function(listing) {
-      //           console.log(listing);
-      //           $scope.place = listing;
-      //           });
-      //         }
-      //
-      //         $scope.map = {
-      //             "center": {
-      //                 "latitude": place[0].geometry.location.lat(),
-      //                 "longitude": place[0].geometry.location.lng()
-      //             },
-      //             "zoom": 18
-      //         };
-      //         $scope.marker = {
-      //             id: 0,
-      //             coords: {
-      //                 latitude: place[0].geometry.location.lat(),
-      //                 longitude: place[0].geometry.location.lng()
-      //             }
-      //         };
-      //
-      //     }
-      // };
-      // if($routeParams.placeId) {
-      // PlaceService.getSingleBar($routeParams.placeId, lat, long).then(function(listing) {
-      //   $scope.place = listing;
-      //   $scope.reviews = listing.reviews;
-      //   $scope.trustSrc = function(src) {
-      //     return $sce.trustAsResourceUrl(src);
-      //   }
-      //   console.log($scope.trustSrc(listing.website))
-      // });
-      // }
-      // $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
-
-
 
     });
 })();
