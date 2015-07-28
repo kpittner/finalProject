@@ -27,7 +27,10 @@
   <ng-include src="'home/views/navbar.html'"></ng-include>
 
   <div ng-view class="fadeZoom"></div>
+  <script src='//maps.google.com/maps/api/js?sensor=false'></script>
 
+
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
   <script src='http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false&language=en&v=3.17'></script>
 
   <!-- bower:js -->
@@ -39,6 +42,8 @@
   <script src="vendor/angular-strap/dist/angular-strap.tpl.js"></script>
   <script src="vendor/satellizer/satellizer.js"></script>
   <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+  <script src="vendor/lodash/lodash.js"></script>
+  <script src="vendor/angular-google-maps/dist/angular-google-maps.js"></script>
   <!-- endbower -->
 
 
@@ -50,17 +55,17 @@
   <script src="survey/survey.service.js"></script>
   <script src="survey/survey.controller.js"></script>
   <script src="survey/data.js"></script>
-  <script src="myMap/myMap.module.js"></script>
-  <script src="myMap/myMap.service.js"></script>
-  <script src="myMap/myMap.controller.js"></script>
   <script src="profile/profile.module.js"></script>
   <script src="profile/profile.controller.js"></script>
   <script src="profile/profile.accountService.js"></script>
+  <script src="myMap/myMap.module.js"></script>
+  <script src="myMap/myMap.service.js"></script>
+  <script src="myMap/myMap.controller.js"></script>
+  <script src="app.module.js"></script>
+  <script src="home/navbar.js"></script>
   <script src="favorites/favorites.module.js"></script>
   <script src="favorites/favorites.service.js"></script>
   <script src="favorites/favorites.controller.js"></script>
-  <script src="app.module.js"></script>
-  <script src="home/navbar.js"></script>
   <script src="destination/destination.module.js"></script>
   <script src="destination/destination.service.js"></script>
   <script src="destination/destination.controller.js"></script>

@@ -81,6 +81,7 @@ a {
 
 .panel-body {
   height: 630px;
+  overflow: scroll;
 }
 
 .panel-default > .panel-heading {
@@ -102,6 +103,8 @@ a {
 
 .angular-google-map-container {
   height: 400px;
+  // width: 80%;
+  margin-left: 10%;
 }
 
 .form-control {

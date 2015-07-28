@@ -3,7 +3,9 @@
   angular
     .module('myMap')
     .factory('MyMapService', ['$http', '$rootScope', function($http, $rootScope) {
-      var url = 'http://tiy-fee-rest.herokuapp.com/collections/myMapLocations';
+      var url="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="
+      // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference='
+      // var photoUrl = 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=';
 
       function addLocation(location) {
         $http.post(url, location).then(function (res) {
