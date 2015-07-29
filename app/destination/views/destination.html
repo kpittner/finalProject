@@ -1,11 +1,15 @@
+<div ng-controller="DestinationController">
+  <script type="text/ng-template" id="searchbox.tpl.html">
+    <input class="searchForFlight" type="text" placeholder="Where do you want to go?" size="50" style="font-size: 16px;">
+  </script>
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  </ui-gmap-google-map >
+</div>
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Enter a Destination</div>
     <div class="panel-body">
       <div class="myMapRow">
-        <div class="angular-google-map-container">
-          <ui-gmap-google-map center='map.center' zoom='map.zoom' class='angular-google-map-container'></ui-gmap-google-map>
-        </div>
         <div class="individualPlaceDest">
           <a class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(location)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></a>
           <h2>Germany</h2>
@@ -15,7 +19,7 @@
         </div>
         <div class="flightInfo">
           <h2>Let's Go!</h2>
-          <p>Flight Info</p>
+          {{ getFlight }}
         </div>
       </div>
     </div>

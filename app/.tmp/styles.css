@@ -1,0 +1,333 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #e4e7ec; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold; }
+
+a {
+  color: #098ADD; }
+
+.text-muted {
+  color: #90939a; }
+
+.navbar {
+  border: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.navbar-default .navbar-nav > li > a {
+  color: #098ADD; }
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #098ADD;
+  background-color: white; }
+
+.navbar-header {
+  float: left;
+  padding-left: 15px; }
+
+.navbar-nav {
+  float: left;
+  margin: 0; }
+
+.navbar-nav > li {
+  margin-left: 70px; }
+
+.navbar-nav > li > a {
+  padding: 15px; }
+
+.navbar-default {
+  color: #098ADD;
+  background: black; }
+
+.navbar-default .navbar-brand {
+  color: #098ADD;
+  background-color: black; }
+
+.navbar-default .navbar-brand:hover {
+  color: #098ADD;
+  background-color: #fff; }
+
+.navbar-brand {
+  width: 275px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: -15px;
+  -webkit-transition: 0.25s all;
+          transition: 0.25s all; }
+
+.panel {
+  border-color: #cfd9D7;
+  border-radius: 2px;
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2); }
+
+.panel-body {
+  height: 630px;
+  overflow: scroll; }
+
+.panel-default > .panel-heading {
+  font-size: 300%;
+  text-align: center;
+  font-weight: bold;
+  color: #098ADD;
+  background-color: black;
+  text-transform: uppercase;
+  border-color: #cfd9db; }
+
+.homeRow img {
+  width: 575px;
+  height: 575px;
+  margin-left: 283px;
+  margin-top: -15px; }
+
+.angular-google-map-container {
+  height: 400px;
+  width: 80%;
+  margin-left: 10%;
+  margin-bottom: 10px; }
+
+.searchForFlight {
+  margin-left: 10%;
+  margin-bottom: 10px;
+  margin-top: -5px; }
+
+.form-control {
+  border-radius: 0; }
+
+.center-form {
+  width: 33%;
+  margin: 2.5% auto; }
+
+.signup-or-separator {
+  position: relative;
+  height: 34px;
+  text-align: center;
+  background: none; }
+
+.signup-or-separator hr {
+  width: 90%;
+  margin: -16px auto 10px auto;
+  border-top: 1px solid #dce0e0; }
+
+.signup-or-separator .text {
+  display: inline-block;
+  padding: 8px;
+  margin: 0;
+  background-color: #fff; }
+
+.has-feedback .form-control-feedback {
+  top: 0;
+  left: 0;
+  width: 46px;
+  height: 46px;
+  line-height: 46px;
+  color: #555; }
+
+.password-strength-indicator {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  width: 5px;
+  padding: 0 15px; }
+
+.password-strength-indicator span {
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin-bottom: 2px;
+  background: #ebeef1;
+  border-radius: 5px; }
+
+[class^='ion-'] {
+  font-size: 1.2em; }
+
+.has-feedback .form-control {
+  padding-left: 42.5px; }
+
+.alert-material {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1;
+  display: inline-block;
+  min-height: 48px;
+  padding: 13px 24px 12px;
+  font-family: 'Roboto', sans-serif;
+  color: #f1f1f1;
+  cursor: default;
+  background: #323232;
+  border-radius: 2px;
+  outline: none;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.profile-picture {
+  height: 100px;
+  display: block; }
+
+.btn {
+  font-weight: bold;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+
+.btn-primaryH {
+  font-size: 1.5em;
+  background-color: black;
+  color: #098ADD;
+  -webkit-transition: .7s;
+          transition: .7s;
+  margin-left: 50px; }
+
+.btn-primaryH:hover {
+  color: #098ADD;
+  border: none;
+  box-shadow: none;
+  -webkit-transition: .7s;
+          transition: .7s;
+  background-color: white; }
+
+.individualPlace {
+  box-shadow: 5px 5px 5px 3px;
+  height: 200px;
+  width: 100%;
+  border: 3px #098ADD solid;
+  overflow: scroll;
+  margin-top: 20px; }
+
+.individualPlaceDest {
+  box-shadow: 5px 5px 5px 3px;
+  height: 100px;
+  width: 100%;
+  border: 3px #098ADD solid;
+  overflow: scroll;
+  margin-top: 20px; }
+
+.individualPlaceDest h2, .description {
+  text-align: center;
+  width: 100%; }
+
+.flightInfo {
+  box-shadow: 5px 5px 5px 3px;
+  height: 100px;
+  width: 100%;
+  border: 3px #098ADD solid;
+  overflow: scroll;
+  margin-top: 40px; }
+
+.flightInfo h2, p {
+  text-align: center;
+  width: 100%; }
+
+.individualPlace img {
+  height: 180px;
+  width: 180px;
+  float: left;
+  margin-top: 5px; }
+
+.go {
+  background-color: #00B300;
+  border-style: groove;
+  border-width: medium;
+  margin-left: 335px;
+  border-color: #00B300;
+  color: white; }
+
+.been {
+  background-color: #FB000D;
+  border-style: groove;
+  border-width: medium;
+  border-color: #FB000D;
+  color: white; }
+
+.individualPlace h2, .description {
+  text-align: center;
+  width: 93%; }
+
+.fa-3x {
+  float: right; }
+
+.btn-success {
+  background-color: #0f9d58; }
+
+.btn-success:hover {
+  background-color: #196c4a; }
+
+.btn-danger {
+  background-color: #db4437; }
+
+.btn-danger:hover {
+  background-color: #b04c3b; }
+
+.btn-group-vertical .btn {
+  margin-bottom: 10px; }
+
+.btn-group-vertical > .btn:first-child:not(:last-child) {
+  border-radius: 2px; }
+
+.btn-group-vertical > .btn:not(:first-child):not(:last-child) {
+  border-radius: 2px; }
+
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+  border-radius: 2px; }
+
+.btn-lg {
+  font-size: 14px; }
+
+.btn [class^='ion-'] {
+  margin-right: 5px; }
+
+.btn .fa {
+  margin-right: 5px; }
+
+/*********************
+* Social Buttons
+*********************/
+.btn-google-plus {
+  color: #fff;
+  background-color: #dd4b39;
+  border: 1px solid #d54331; }
+
+.btn-google-plus:hover,
+.btn-google-plus:focus {
+  color: #fff;
+  background-color: #cb3927; }
+
+/*********************
+* Animations
+*********************/
+.fadeZoom.ng-enter {
+  -webkit-animation-duration: 0.2, 0.2s;
+          animation-duration: 0.2, 0.2s;
+  -webkit-animation-name: fadeIn, zoomIn;
+          animation-name: fadeIn, zoomIn; }
+
+.fadeZoomFadeDown.ng-enter {
+  -webkit-animation-duration: 0.2s, 0.2s;
+          animation-duration: 0.2s, 0.2s;
+  -webkit-animation-name: fadeIn, zoomIn;
+          animation-name: fadeIn, zoomIn; }
+
+.fadeZoomFadeDown.ng-leave {
+  -webkit-animation: fadeOutDown 0.2s;
+          animation: fadeOutDown 0.2s; }
+
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.8, 0.8, 0.8);
+            transform: scale3d(0.8, 0.8, 0.8); }
+  50% {
+    opacity: 1; } }
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.8, 0.8, 0.8);
+            transform: scale3d(0.8, 0.8, 0.8); }
+  50% {
+    opacity: 1; } }

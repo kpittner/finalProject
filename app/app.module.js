@@ -6,7 +6,9 @@ angular.module('MyApp', [
   'auth',
   'profile',
   'myMap',
-  'favorites'
+  'favorites',
+  'destination',
+  'uiGmapgoogle-maps'
 ])
 
 .config(function($routeProvider) {
