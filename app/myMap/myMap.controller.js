@@ -35,7 +35,7 @@ var long;
                       "latitude": place[0].geometry.location.lat(),
                       "longitude": place[0].geometry.location.lng()
                   },
-                  "zoom": 18
+                  "zoom": 12
               };
               $scope.marker = {
                   id: 0,
@@ -50,7 +50,7 @@ var long;
 
 
 
-    $scope.searchbox = { template: 'searchbox.tpl.html', events: events, parentdiv:'searchBoxParent' };
+    $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
 
 });
 

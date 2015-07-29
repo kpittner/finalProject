@@ -1,10 +1,11 @@
 <div ng-controller="MyMapController">
-    <input class="searchForFlight" type="text" placeholder="Where do you want to go?" size="50" style="font-size: 16px;">
-
-<div id="searchBoxParent"></div>
-<div>
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  </ui-gmap-google-map >
+<script type="text/ng-template" id="searchbox.tpl.html">
+  <input type="text" placeholder="Where do you want to go?" size="50" style="font-size: 16px; margin-top: 10px;">
+</script>
+  <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true">
+    <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_LEFT"></ui-gmap-search-box>
+    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+  </ui-gmap-google-map>
 </div>
 
 <div class="container">

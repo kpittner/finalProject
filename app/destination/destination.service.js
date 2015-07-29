@@ -3,18 +3,18 @@
   angular
   .module('destination')
   .factory('DestinationService', function ($http) {
-    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=';
-    var flightURL='https://www.googleapis.com/qpxExpress/v1/json?city';
-
+    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=500&location=&key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
+    var auto='https://maps.googleapis.com/maps/api/place/autocomplete/json?input=&key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
+    var flightURL='https://www.googleapis.com/qpxExpress/v1/trips.data/search?key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
 
     function addLocation(location) {
       $http.post(url, location).then(function () {
         $rootScope.$broadcast('location:added');
       });
     }
-    function getFlight() {
-      return $http.get(flightURL).then(function(city) {
-        return city.data;
+    function getFlights() {
+      return $http.post(flightURL).then(function (data) {
+        $rootScope.$broadcast('flight:received');
       });
     }
     function getLocations() {
@@ -31,7 +31,8 @@
     return {
       addLocation: addLocation,
       getLocations: getLocations,
-      deleteLocation: deleteLocation
+      deleteLocation: deleteLocation,
+      getFlights: getFlights
     };
   });
 })();
