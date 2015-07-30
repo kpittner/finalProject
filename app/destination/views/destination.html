@@ -4,7 +4,7 @@
 </script>
   <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true">
     <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_LEFT"></ui-gmap-search-box>
-    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey='marker.id'></ui-gmap-marker>
   </ui-gmap-google-map>
 </div>
 </div>
@@ -22,7 +22,18 @@
         </div>
         <div class="flightInfo">
           <h2>Let's Go!</h2>
-          {{ flights }}
+          <div class="row">
+            <div class="col-md-6">
+                <p class="input-group">
+                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                  </span>
+                </p>
+            </div>
+          <input type="text" class="startAirport" placeholder="Origin">
+          <input type="text" class="endAirport" placeholder="Destination">
+          </div>
         </div>
       </div>
     </div>

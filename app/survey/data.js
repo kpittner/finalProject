@@ -45,7 +45,7 @@ destinations = [
     name: 'Mullingar, Ireland',
     size: 'small',
     activities: ['cathedrals', 'sports', 'gardens', 'nightlife'],
-    food: 'no';
+    food: 'no',
     climate: 'rainymild',
     geography: 'island',
     image: 'http://images4.mygola.com/1b620006d77673d5d5f9abd1635e95de_1390549196_l.jpg',
@@ -216,7 +216,7 @@ questions = [
         value: 'large'
       },
       two: {
-        choice: 'I like being around a lot of people sometimes'
+        choice: 'I like being around a lot of people sometimes',
         value: 'medium'
       },
       three: {
@@ -228,7 +228,7 @@ questions = [
   {
     now: 'questionTwo',
     next: 'questionThree',
-    question: 'I like an outdoors environment that...'
+    question: 'I like an outdoors environment that...',
     choices: {
       one: {
         choice: 'let\'s me burn!',
@@ -251,14 +251,14 @@ questions = [
   {
     now: 'questionThree',
     next: 'questionFour',
-    question: 'Food is the love of my life...'
+    question: 'Food is the love of my life...',
     choices: {
       one: {
         choice: 'I need a place that revolves around food',
         value: 'yes'
       },
       two: {
-        choice: 'Eh, not so important'
+        choice: 'Eh, not so important',
         value: 'no'
       },
     }
@@ -266,14 +266,14 @@ questions = [
   {
     now: 'questionFour',
     next: 'questionFive',
-    question: 'There should at least be... (pick as many as you want)'
+    question: 'There should at least be... (pick as many as you want)',
     choices: {
       one: {
         choice: 'the arts available! (theatres, museums, galleries)',
         value: 'arts'
       },
       two: {
-        choice: 'fun in the sun...on the water, of course!'
+        choice: 'fun in the sun...on the water, of course!',
         value: 'watersports'
       },
       three: {
@@ -281,19 +281,19 @@ questions = [
         value: 'fishing'
       },
       four: {
-        choice: 'clubs to dance the night away!'
+        choice: 'clubs to dance the night away!',
         value: 'nightlife'
       },
       five: {
-        choice: 'festivals, so I have an excuse to drink'
+        choice: 'festivals, so I have an excuse to drink',
         value: 'festivals'
       },
       six: {
-        choice: 'and of course, sports, so I can watch the game'
+        choice: 'and of course, sports, so I can watch the game',
         value: 'sports'
       },
       seven: {
-        choice: 'some Jesus time'
+        choice: 'some Jesus time',
         value: 'cathedrals'
       },
     }
@@ -301,14 +301,14 @@ questions = [
   {
     now: 'questionFive',
     next: 'endOfQuiz',
-    question: 'I must be able to: (pick what you desire)'
+    question: 'I must be able to: (pick what you desire)',
     choices: {
       one: {
         choice: 'walk everywhere',
         value: 'walk'
       },
       two: {
-        choice: 'take a boat to where I want to go!'
+        choice: 'take a boat to where I want to go!',
         value: 'boat'
       },
       three: {

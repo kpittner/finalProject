@@ -13,7 +13,6 @@
     };
     var getFavorites = function () {
       return $http.get(url).then(function (data) {
-        console.log(data);
         return data.data;
       });
     };

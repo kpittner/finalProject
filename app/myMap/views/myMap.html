@@ -4,7 +4,7 @@
 </script>
   <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true">
     <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_LEFT"></ui-gmap-search-box>
-    <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" events="marker.events" idkey="1">
+    <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" events="marker.events" idkey="location._id">
   </ui-gmap-google-map>
 </div>
 <div class="container">

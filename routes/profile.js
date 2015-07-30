@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../entities/User');
 var config = require('../config');
+var request = require('request');
 var ensureAuthenticated = require('./helpers').ensureAuthenticated;
 
 /*
@@ -9,6 +10,15 @@ var ensureAuthenticated = require('./helpers').ensureAuthenticated;
  | GET /api/me
  |--------------------------------------------------------------------------
  */
+router.route('/grab_destination')
+  .get(function(req,res,next){
+    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=cruise&key=AIzaSyCQNGl0Ve9Y5BQbB2cqnAcglpr_HqWEO6Y';
+    request.get({url: url}, function(err, response, data) {
+      res.send(JSON.parse(response.body));
+    })
+  })
+
+
 router.route('/me')
   .all(ensureAuthenticated)
   .get(function(req, res) {

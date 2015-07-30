@@ -3,7 +3,8 @@
   angular
     .module('destination', [
       'ngRoute',
-      'uiGmapgoogle-maps'
+      'uiGmapgoogle-maps',
+      'ui.bootstrap'
     ])
 
   .config(function($routeProvider) {
