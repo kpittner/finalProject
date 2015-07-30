@@ -4,10 +4,9 @@
 </script>
   <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true">
     <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_LEFT"></ui-gmap-search-box>
-    <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+    <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" events="marker.events" idkey="1">
   </ui-gmap-google-map>
 </div>
-
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Enter a Location</div>
@@ -19,8 +18,8 @@
           <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam...</p></div>
-          <button class="go">Wanna Go</button>
-          <button class="been">Been There</button>
+          <button class="go" ng-click="addMarker">Wanna Go</button>
+          <button class="been" ng-click="addMarker">Been There</button>
           <a><button class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(location)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></button></a>
         </div>
       </div>

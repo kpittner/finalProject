@@ -2,7 +2,7 @@
   'use strict';
   angular
   .module('destination')
-  .controller('DestinationController', function($scope, DestinationService, $routeParams, uiGmapGoogleMapApi) {
+  .controller('DestinationController', function($scope, DestinationService, $routeParams, uiGmapGoogleMapApi, $http) {
     $scope.map = { center:
                     { latitude: 32.7833,
                       longitude: -79.931051 },
@@ -43,9 +43,38 @@
           }
       };
 
+      var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=500&location=lat,long&key=AIzaSyA94aRjFInj-3K0q3AftPbrKYX8EilLQ5w';
+
       var flightOptions = {
-        
-      }
+        goDate: '',
+        returnDate: '',
+        numAdults: '',
+        startAirport: '',
+        endAirport: ''
+      };
+      var sendGoogle;
+      var getCheapFlights = function(flightOptions) {
+        sendGoogle = {
+          request: {
+            passengers: flightOptions.numAdults
+          },
+          slice: [
+            {
+            origin: flightOptions.startAirport,
+            destination: flightOptions.endAirport,
+            date: flightOptions.goDate
+            },
+            {
+            origin: flightOptions.endAirport,
+            destination: flightOptions.startAirport,
+            date: flightOptions.returnDate
+            }
+          ]
+        }
+      };
+      $http.jsonp(url, sendGoogle).success(function(flights) {
+        console.log(flights);
+      });
 
 
 

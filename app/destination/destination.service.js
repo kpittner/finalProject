@@ -3,9 +3,9 @@
   angular
   .module('destination')
   .factory('DestinationService', function ($http) {
-    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=500&location=&key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
-    var auto='https://maps.googleapis.com/maps/api/place/autocomplete/json?input=&key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
-    var flightURL='https://www.googleapis.com/qpxExpress/v1/trips.data/search?key=AIzaSyCUNGzvu0xQwJj1yiPr_HYxhMSeBJdiaSQ';
+    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?radius=500&location=lat,long&key=AIzaSyA94aRjFInj-3K0q3AftPbrKYX8EilLQ5w';
+    var auto='https://maps.googleapis.com/maps/api/place/autocomplete/json?input=&key=AIzaSyA94aRjFInj-3K0q3AftPbrKYX8EilLQ5w';
+    var flightURL='https://www.googleapis.com/qpxExpress/v1/trips.data/search?key=AIzaSyA94aRjFInj-3K0q3AftPbrKYX8EilLQ5w';
 
     function addLocation(location) {
       $http.post(url, location).then(function () {
