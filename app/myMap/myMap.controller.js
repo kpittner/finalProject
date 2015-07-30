@@ -6,7 +6,7 @@ var long;
 
   angular
   .module('myMap')
-  .controller('MyMapController', function($scope, $auth, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope) {
+  .controller('MyMapController', function($scope, $auth, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, $alert) {
     Account.getProfile()
       .success(function(data) {
         console.log(data.displayName);

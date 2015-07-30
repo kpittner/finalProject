@@ -43,7 +43,13 @@ a {
 }
 
 .navbar-nav > li {
+  font-size: 16px;
   margin-left: 70px;
+    //  text-shadow:
+    //  -1px -1px 0 white,
+    //  1px -1px 0 white,
+    //  -1px 1px 0 white,
+    //  1px 1px 0 white; 
 }
 
 .navbar-nav > li > a {
