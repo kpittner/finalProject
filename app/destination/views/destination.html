@@ -20,19 +20,13 @@
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam...</p></div>
         </div>
-        <div class="flightInfo">
+        <!-- <div class="flightInfo" ng-repeat="flight in flights"  data-id="{{flight.id}}"> -->
           <h2>Let's Go!</h2>
           <div class="row">
-            <div class="col-md-6">
-                <p class="input-group">
-                  <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
-                  <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                  </span>
-                </p>
-            </div>
-          <input type="text" class="startAirport" placeholder="Origin">
-          <input type="text" class="endAirport" placeholder="Destination">
+            <input type="text" class="startAirport" placeholder="Origin">
+            <input type="text" class="endAirport" placeholder="Destination">
+            <input type="text" class="date" placeholder="YYYY-MM-DD">
+            <input type="button" class="submit" value="Let's Go!" ng-click="getCheapFlights(flightOptions)">
           </div>
         </div>
       </div>

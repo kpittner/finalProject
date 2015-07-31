@@ -5,7 +5,6 @@
     .factory('MyMapService', '$http', '$rootScope', function($http, $rootScope) {
       var url="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
       var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
-      
 
       function addLocation(location) {
         $http.post(url, location).then(function () {

@@ -88,6 +88,10 @@ a {
   margin-left: 283px;
   margin-top: -15px; }
 
+.submit {
+  width: 100px;
+  height: 30px; }
+
 .angular-google-map-container {
   height: 400px;
   width: 80%;

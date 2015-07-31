@@ -16,8 +16,8 @@
       $scope.marker = {
             id: 0,
             coords: {
-                latitude: 52.47491894326404,
-                longitude: -1.8684210293371217
+                latitude: 32.792447,
+                longitude: -79.936134
             },
             options: { draggable: true },
             events: {
@@ -112,16 +112,6 @@
       }, function(err) {
         console.log('FLIGHT ERR', err);
       });
-
-
-
-      $scope.open = function($event) {
-        $event.preventDefault();
-        $event.stopPropagation();
-
-        $scope.opened = true;
-      };
-
 
 
     $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
