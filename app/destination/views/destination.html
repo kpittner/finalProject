@@ -22,12 +22,13 @@
         </div>
         <!-- <div class="flightInfo" ng-repeat="flight in flights"  data-id="{{flight.id}}"> -->
           <h2>Let's Go!</h2>
-          <div class="row">
+          <form class="form" name="myForm">
             <input type="text" class="startAirport" placeholder="Origin">
             <input type="text" class="endAirport" placeholder="Destination">
             <input type="text" class="date" placeholder="YYYY-MM-DD">
-            <input type="button" class="submit" value="Let's Go!" ng-click="getCheapFlights(flightOptions)">
-          </div>
+            <!-- <input type="button" class="submit" value="Let's Go!" ng-click="getCheapFlights(flightOptions)"> -->
+            <button class="submit" href="javascript:alert('hi')" ng-click="getCheapFlights(flightOptions)">Let's Go!</button>
+          </form>
         </div>
       </div>
     </div>

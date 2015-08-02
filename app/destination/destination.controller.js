@@ -55,7 +55,7 @@
               if (!place || place == 'undefined' || place.length == 0) {
                   return;
               }
-              console.log('place', lat, long);
+              console.log('place', lat, long, name);
 
 
               $scope.map = {
@@ -76,16 +76,26 @@
           }
       };
 
-      var url='https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBfVaCGgp063V4ECKT8lNmc7V5c1mWllqM';
+      var flightUrl='https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBfVaCGgp063V4ECKT8lNmc7V5c1mWllqM';
 
       var flightOptions = {
         date: '',
-        numAdults: '',
+        numAdults: 1,
         startAirport: '',
         endAirport: ''
       };
-      var sendGoogle;
+
+      console.log("fightOpotdkfhk", flightOptions);
+
+      var sendGoogle = "because";
+
+      console.log("Send oooooooogle", sendGoogle);
+
       var getCheapFlights = function(flightOptions) {
+
+        console.log("START", flightOptions.startAirport);
+        console.log("END", flightOptions.endAirport);
+
         sendGoogle = {
             "request": {
               "slice": [
@@ -104,14 +114,22 @@
               "refundable": false
             }
           }
+          if (sendGoogle == undefined) {
+            console.log('sendGoogleNull', status);
+            return;
+          } else {
+            console.log('sendGoogle', sendGoogle.toJSON);
+          $http.post(flightUrl, sendGoogle).then(function(flights) {
+            console.log(flights);
+          }, function(err) {
+            console.log('FLIGHT ERR', err);
+          });
+          };
+
         };
 
 
-      $http.post(url, sendGoogle).then(function(flights) {
-        console.log(flights);
-      }, function(err) {
-        console.log('FLIGHT ERR', err);
-      });
+
 
 
     $scope.searchbox = { template: 'searchbox.tpl.html', events: events };

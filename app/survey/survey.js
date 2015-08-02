@@ -3,7 +3,7 @@
 // });
 //
 // var page = {
-// 
+//
 //   myObj: {},
 //   geography: [],
 //   activities: [],
@@ -18,14 +18,14 @@
 //   questionOn: '',
 //   selectedAnswer: '',
 //
-//   firstCity : {},
-//   secondCity : {},
-//   thirdCity : {},
+//   firstPlace : {},
+//   secondPlace : {},
+//   thirdPlace : {},
 //
 //   init:function(arguments){
 //     page.initEvents();
 //   },
-//
+// 
 //   page.initEvents: function(arguments) {
 //     $('#beginSurvey').on('click', page.openSurvey);
 //

@@ -75,7 +75,7 @@ var long;
             if (!place || place == 'undefined' || place.length == 0) {
                 return;
             }
-            console.log('place', lat, long);
+            console.log('place', lat, long, name);
 
 
             $scope.map = {
