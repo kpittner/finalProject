@@ -6,7 +6,7 @@ var long;
 
   angular
   .module('myMap')
-  .controller('MyMapController', function($scope, $auth, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, $alert) {
+  .controller('MyMapController', function($scope, $auth, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, $alert, MyMapService) {
     // Account.getProfile()
     //   .success(function(data) {
     //     console.log(data.displayName);
@@ -21,6 +21,15 @@ var long;
     //       duration: 3
     //     });
     //   });
+    $scope.addToFavorites = function (newFav) {
+      MyMapService.addToFavorites(newFav);
+    }
+    $scope.addMarkerGreen = function(wannago) {
+      MyMapService.addMarkerGreen(wannago);
+    }
+    $scope.addMarkerRed = function(beenthere) {
+      MyMapService.addMarkerRed(beenthere);
+    }
 
 
 
@@ -63,19 +72,43 @@ var long;
               longitude: location.coord.longitude
           },
       };
+
       map.markers.push(marker)
     };
 
+    $scope.addMarker = function (lat, lng) {
+      var marker = new google.maps.Marker({
+        map: scope.map,
+        position: new google.maps.LatLng(lat, lng)
+      });
+
+      $scope.markers.push(marker);
+    };
+      $scope.namePlace = [];
+
   var events = {
         places_changed: function (searchBox) {
-          console.log('searchbox please', searchBox)
             var place = searchBox.getPlaces();
             lat = place[0].geometry.location.lat();
             long = place[0].geometry.location.lng();
             if (!place || place == 'undefined' || place.length == 0) {
                 return;
             }
-            console.log('place', lat, long, name);
+
+
+
+            console.log('place', lat, long, place);
+            var newPlace = {
+              name: place[0].formatted_address,
+              coords: {
+                latitude: place[0].geometry.location.lat(),
+                longitude: place[0].geometry.location.lng()
+              },
+              id: place[0].place_id
+            };
+
+            $scope.namePlace.push(newPlace);
+            console.log($scope.namePlace);
 
 
             $scope.map = {
@@ -92,24 +125,21 @@ var long;
                     longitude: place[0].geometry.location.lng()
                 }
             };
+            $scope.createMarker = function(location) {
+              console.log("location: ", location);
+              var marker = {
+                  id: 0,
+                    coords: {
+                      latitude: location.coord.latitude,
+                      longitude: location.coord.longitude
+                  },
+              };
+
+              map.markers.push(marker)
+            };
 
         }
     };
-
-
-
-
-    // var geocoder = new google.maps.Geocoder();
-    //     geocoder.geocode({address: newPlace.address}, function (result) {
-    //       newPlace.coords = {
-    //         latitude: result[0].geometry.location.lat(),
-    //         longitude: result[0].geometry.location.lng()
-    //       };
-    //       console.log(newPlace);
-    //       $http.post(url, newPlace).then(function(res) {
-    //         $rootScope.$broadcast('place:added');
-    //       });
-    //     });
 
     $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
 

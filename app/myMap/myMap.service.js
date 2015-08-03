@@ -2,12 +2,18 @@
   'use strict';
   angular
     .module('myMap')
-    .factory('MyMapService', '$http', '$rootScope', function($http, $rootScope) {
-      var url="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
+    .factory('MyMapService', function($http, $rootScope) {
+      var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
+      var url = 'http://tiy-fee-rest.herokuapp.com/collections/places'
       var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
+      function addToFavorites(id) {
+        $http.jsonp(favoritesUrl, id).then(function() {
+          $rootScope.$broadcast('favorite:added');
+        });
+      }
       function addLocation(location) {
-        $http.post(url, location).then(function () {
+        $http.post(url, location).then(function() {
           $rootScope.$broadcast('location:added');
         });
       }
@@ -21,11 +27,23 @@
           $rootScope.$broadcast('location:deleted');
         });
       }
+      function addMarkerGreen(lat, long) {
+        $http.post(url, lat, long).then(function() {
+          $rootScope.$broadcast('marker:added');
+        });
+      }
+      function addMarkerRed(lat, long) {
+        $http.post(url, lat, long).then(function() {
+          $rootScope.$broadcast('marker:added');
+        });
+      }
 
       return {
-        addLocation: addLocation,
+        addToFavorites: addToFavorites,
         getLocations: getLocations,
-        deleteLocation: deleteLocation
+        deleteLocation: deleteLocation,
+        addMarkerGreen: addMarkerGreen,
+        addMarkerRed: addMarkerRed
       };
 
     });

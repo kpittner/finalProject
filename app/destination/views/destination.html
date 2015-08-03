@@ -6,29 +6,35 @@
     <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="TOP_LEFT"></ui-gmap-search-box>
     <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey='marker.id'></ui-gmap-marker>
   </ui-gmap-google-map>
-</div>
-</div>
+
+
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Enter a Destination</div>
     <div class="panel-body">
       <div class="myMapRow">
-        <div class="individualPlaceDest">
+        <!-- <div class="individualPlaceDest">
           <a class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(location)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></a>
           <h2>Germany</h2>
           <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam...</p></div>
-        </div>
-        <!-- <div class="flightInfo" ng-repeat="flight in flights"  data-id="{{flight.id}}"> -->
-          <h2>Let's Go!</h2>
-          <form class="form" name="myForm">
-            <input type="text" class="startAirport" placeholder="Origin">
-            <input type="text" class="endAirport" placeholder="Destination">
-            <input type="text" class="date" placeholder="YYYY-MM-DD">
+        </div> -->
+          <form class="form" name="myForm" ng-submit="getCheapFlights(flightOptions)">
+            <input type="text" ng-model="flightOptions.startAirport" class="startAirport" placeholder="Origin">
+            <input type="text" ng-model="flightOptions.endAirport" class="endAirport" placeholder="Destination">
+            <input type="text" ng-model="flightOptions.date" class="date" placeholder="YYYY-MM-DD">
+            <input type="text" ng-model="flightOptions.numAdults" class="numAdults" placeholder="How Many?">
             <!-- <input type="button" class="submit" value="Let's Go!" ng-click="getCheapFlights(flightOptions)"> -->
-            <button class="submit" href="javascript:alert('hi')" ng-click="getCheapFlights(flightOptions)">Let's Go!</button>
+            <button class="submit" type="submit">Let's Go!</button>
           </form>
+          <!-- <div class="flightResults" ng-repeat="flight in flights" data-id="{{flightObj.id}}"> -->
+          <div class="myMapRow" ng-repeat="flight in flights" data-id="{{flightObj.id}}">
+            <div class="individualPlace">
+              <h2>{{flightObj.airline}}</h2>
+              <a><button class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(location)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></button></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

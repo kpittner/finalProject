@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #e4e7ec; }
+  background-image: url("http://worldmap3.f-secure.com/resources/images/world.png"); }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
@@ -177,16 +177,18 @@ a {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
 
 .btn-primaryH {
-  font-size: 1.5em;
+  font-size: 2.5em;
   background-color: black;
-  color: #098ADD;
+  border-color: #098ADD;
+  color: white;
   -webkit-transition: .7s;
           transition: .7s;
-  margin-left: 50px; }
+  margin-left: 50px;
+  margin-top: 300px; }
 
 .btn-primaryH:hover {
   color: #098ADD;
-  border: none;
+  border-color: #098ADD;
   box-shadow: none;
   -webkit-transition: .7s;
           transition: .7s;

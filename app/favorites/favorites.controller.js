@@ -11,7 +11,7 @@
     //   $scope.favorite = location.data;
     // });
     $scope.addToFavorites = function (location) {
-      FavoritesService.addFavorite(location);
+      FavoritesService.addToFavorites(location);
     };
     $scope.deleteFavorite = function (id) {
       FavoritesService.delete(id);

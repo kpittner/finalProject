@@ -1,22 +1,16 @@
+<div ng-controller="FavoritesController">
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-heading">Favorites</div>
     <div class="panel-body">
-        <div class="individualPlace">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Flag_map_of_Germany.svg" alt="">
-          <h2>Germany</h2>
+        <div class="individualPlace" ng-repeat="placeObject in namePlace" data-id="{{placeObject.id}}">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQDDyiEXZnYoVgxeFmKFnZkCikHHUbeGaaU5PLR2fSlAWwnGcbNcw" alt="">
+          <h2>{{placeObject.name}}</h2>
           <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam...</p></div>
         </div>
-        <div class="individualPlace">
-          <img src="https://pbs.twimg.com/profile_images/1298643948/FranceFlag_svg.png" alt="">
-          <h2>France</h2>
-          <div class="description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam...</p>
-          </div>
-        </div>
     </div>
   </div>
+</div>
 </div>

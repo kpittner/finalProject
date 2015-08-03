@@ -78,23 +78,11 @@
 
       var flightUrl='https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBfVaCGgp063V4ECKT8lNmc7V5c1mWllqM';
 
-      var flightOptions = {
-        date: '',
-        numAdults: 1,
-        startAirport: '',
-        endAirport: ''
-      };
 
-      console.log("fightOpotdkfhk", flightOptions);
+      var sendGoogle;
 
-      var sendGoogle = "because";
-
-      console.log("Send oooooooogle", sendGoogle);
-
-      var getCheapFlights = function(flightOptions) {
-
-        console.log("START", flightOptions.startAirport);
-        console.log("END", flightOptions.endAirport);
+      $scope.getCheapFlights = function(flightOptions) {
+        console.log("fightOpotdkfhk", flightOptions);
 
         sendGoogle = {
             "request": {
