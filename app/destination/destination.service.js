@@ -3,8 +3,8 @@
   angular
   .module('destination')
   .factory('DestinationService', function ($http) {
-    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=cruise&key=AIzaSyAcHc01VVTLTOjs6FnaSvGWLKfP5EUV3SQ';
-    var auto='https://maps.googleapis.com/maps/api/place/autocomplete/json?input=&key=AIzaSyAcHc01VVTLTOjs6FnaSvGWLKfP5EUV3SQ';
+    var url='https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=cruise&key=AIzaSyCDapvCYK1SRbatOHBLleXBtbqstbPGyQ8';
+    var auto='https://maps.googleapis.com/maps/api/place/autocomplete/json?input=&key=AIzaSyCDapvCYK1SRbatOHBLleXBtbqstbPGyQ8';
 
     function addLocation(location) {
       $http.post(url, location).then(function () {
@@ -28,7 +28,7 @@
     }
 
     var getFlights = function () {
-      return $http.post('https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBfVaCGgp063V4ECKT8lNmc7V5c1mWllqM').then(function (data) {
+      return $http.post('https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyCDapvCYK1SRbatOHBLleXBtbqstbPGyQ8').then(function (data) {
         var flightArr = [];
         var flights = JSON.parse(data.trips.tripOption);
         console.log('FLIGHTS', flights);

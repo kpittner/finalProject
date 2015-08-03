@@ -21,14 +21,11 @@ var long;
     //       duration: 3
     //     });
     //   });
-    $scope.addToFavorites = function (newFav) {
-      MyMapService.addToFavorites(newFav);
+    $scope.addToFavorites = function(id) {
+      MyMapService.addToFavorites(id);
     }
     $scope.addMarkerGreen = function(wannago) {
       MyMapService.addMarkerGreen(wannago);
-    }
-    $scope.addMarkerRed = function(beenthere) {
-      MyMapService.addMarkerRed(beenthere);
     }
 
 
@@ -142,6 +139,17 @@ var long;
     };
 
     $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
+
+    var watchCallback = function (locations) {
+        MyMapService.getLocations().success(function (location) {
+          $scope.locations = location;
+        });
+      }
+
+      $scope.$on("location:added", watchCallback);
+      $scope.$on("favorite:added", watchCallback);
+      $scope.$on("location:deleted", watchCallback);
+      $scope.$on("marker:added", watchCallback);
 
 });
 

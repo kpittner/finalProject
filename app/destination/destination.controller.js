@@ -4,6 +4,10 @@
   .module('destination')
   .controller('DestinationController', function($scope, DestinationService, $routeParams, uiGmapGoogleMapApi, $http) {
 
+    $scope.getFlights = function() {
+      DestinationService.getFlights();
+    }
+
       $scope.map = {
         center: {
           latitude: 32.792447,
@@ -48,7 +52,6 @@
 
     var events = {
           places_changed: function (searchBox) {
-            console.log('searchbox please', searchBox)
               var place = searchBox.getPlaces();
               lat = place[0].geometry.location.lat();
               long = place[0].geometry.location.lng();
@@ -76,14 +79,12 @@
           }
       };
 
-      var flightUrl='https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyBfVaCGgp063V4ECKT8lNmc7V5c1mWllqM';
+      var flightUrl='https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyCDapvCYK1SRbatOHBLleXBtbqstbPGyQ8';
 
 
       var sendGoogle;
 
       $scope.getCheapFlights = function(flightOptions) {
-        console.log("fightOpotdkfhk", flightOptions);
-
         sendGoogle = {
             "request": {
               "slice": [
