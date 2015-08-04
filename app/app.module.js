@@ -8,7 +8,8 @@ angular.module('MyApp', [
   'myMap',
   'favorites',
   'destination',
-  'uiGmapgoogle-maps'
+  'uiGmapgoogle-maps',
+  'survey'
 ])
 
 .config(function($routeProvider) {
