@@ -11,7 +11,7 @@ var long;
     $scope.namePlace = [];
 
     MyMapService.getLocations().then(function(data) {
-      console.log(data)
+      console.log('DATA', data)
       data.data.forEach(function(el) {
         $scope.namePlace.push(el);
       })
@@ -145,7 +145,7 @@ var long;
         });
       }
 
-      $rootScope.$on("location:added", watchCallback);
+      $scope.$on("location:added", watchCallback);
       $scope.$on("favorite:added", watchCallback);
       $scope.$on("location:deleted", watchCallback);
       $scope.$on("marker:added", watchCallback);

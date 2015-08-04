@@ -4,12 +4,12 @@
     .module('myMap')
     .factory('MyMapService', function($http, $rootScope) {
       var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
-      var url = 'http://tiy-fee-rest.herokuapp.com/collections/destinations'
+      var url = 'http://tiy-fee-rest.herokuapp.com/collections/mydestinations'
       // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
 
       var addLocation = function(location) {
-        $http.jsonp(url, location).success(function() {
+        $http.post(url, location).success(function() {
           $rootScope.$broadcast('location:added');
         });
       }
