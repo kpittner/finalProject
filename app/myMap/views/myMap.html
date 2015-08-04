@@ -14,9 +14,10 @@
       <div class="myMapRow" ng-repeat="placeObject in namePlace" data-id="{{placeObject.id}}">
         <div class="individualPlace">
           <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQDDyiEXZnYoVgxeFmKFnZkCikHHUbeGaaU5PLR2fSlAWwnGcbNcw" alt="">
-          <h2>{{placeObject.name}}</h2>
-          <button class="been" ng-click="addMarkerRed(placeObject)">Been There</button>
-          <a><button class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(placeObject.coords)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></button></a>
+          <h2>{{placeObject.name}}</h2><a><button class="delete" ng-model="myMap" ng-click="deleteLocation(namePlace.id)" ng-controller="MyMapController"><i class="fa fa-trash-o"></i></button></a>
+          <button class="go" ng-click="addLocation(namePlace)">Wanna Go</button>
+          <button class="been" ng-click="addMarkerRed(placeObject.name)">Been There</button>
+          <a><button class="addToFavorites" ng-model="myMap" ng-click="addToFavorites(id)" ng-controller="FavoritesController"><i class="fa fa-star-o fa-3x"></i></button></a>
         </div>
       </div>
     </div>

@@ -4,21 +4,17 @@
     .module('myMap')
     .factory('MyMapService', function($http, $rootScope) {
       var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
-      var url = 'http://tiy-fee-rest.herokuapp.com/collections/places'
+      var url = 'http://tiy-fee-rest.herokuapp.com/collections/destinations'
       // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
-      function addToFavorites(id) {
-        $http.post(favoritesUrl, id).success(function() {
-          $rootScope.$broadcast('favorite:added');
-        });
-      }
-      function addLocation(location) {
-        $http.post(url, location).then(function() {
+
+      var addLocation = function(location) {
+        $http.jsonp(url, location).success(function() {
           $rootScope.$broadcast('location:added');
         });
       }
       function deleteLocation(id) {
-        return $http.delete(url + '/' + id + '.json').then(function(location) {
+        return $http.delete(url + '/' + id).success(function() {
           $rootScope.$broadcast('location:deleted');
         });
       }
@@ -27,13 +23,13 @@
           $rootScope.$broadcast('marker:added');
         });
       }
-      function getLocations() {
+      var getLocations = function() {
         return $http.get(url);
-      };
+      }
 
 
       return {
-        addToFavorites: addToFavorites,
+        addLocation: addLocation,
         getLocations: getLocations,
         deleteLocation: deleteLocation,
         addMarkerGreen: addMarkerGreen

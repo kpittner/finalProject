@@ -5,7 +5,7 @@
   .controller('DestinationController', function($scope, DestinationService, $routeParams, uiGmapGoogleMapApi, $http) {
 
     $scope.getFlights = function() {
-      DestinationService.getFlights();
+      $scope.flights = DestinationService.getFlights();
     }
 
       $scope.map = {

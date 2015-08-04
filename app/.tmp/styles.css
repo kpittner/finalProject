@@ -33,7 +33,7 @@ a {
 
 .navbar-nav > li {
   font-size: 16px;
-  margin-left: 70px; }
+  margin-left: 67px; }
 
 .navbar-nav > li > a {
   padding: 15px; }
@@ -184,7 +184,8 @@ a {
   -webkit-transition: .7s;
           transition: .7s;
   margin-left: 50px;
-  margin-top: 300px; }
+  margin-top: 300px;
+  border-radius: 15px; }
 
 .btn-primaryH:hover {
   color: #098ADD;

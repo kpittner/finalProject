@@ -6,27 +6,27 @@ var long;
 
   angular
   .module('myMap')
-  .controller('MyMapController', function($scope, $auth, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, $alert, MyMapService) {
-    // Account.getProfile()
-    //   .success(function(data) {
-    //     console.log(data.displayName);
-    //     $rootScope.user = data;
-    //     $rootScope.username = data.displayName
-    //   })
-    //   .error(function(error) {
-    //     $alert({
-    //       content: error.message,
-    //       animation: 'fadeZoomFadeDown',
-    //       type: 'material',
-    //       duration: 3
-    //     });
-    //   });
-    $scope.addToFavorites = function(id) {
-      MyMapService.addToFavorites(id);
-    }
+  .controller('MyMapController', function($scope, $auth, $alert, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, MyMapService) {
+
+    $scope.namePlace = [];
+
+    MyMapService.getLocations().then(function(data) {
+      console.log(data)
+      data.data.forEach(function(el) {
+        $scope.namePlace.push(el);
+      })
+    })
+
     $scope.addMarkerGreen = function(wannago) {
       MyMapService.addMarkerGreen(wannago);
     }
+    $scope.deleteLocation = function(id) {
+      MyMapService.deleteLocation(id);
+    }
+    $scope.addLocation = function(location) {
+      MyMapService.addLocation(location);
+    }
+
 
 
 
@@ -73,15 +73,14 @@ var long;
       map.markers.push(marker)
     };
 
-    $scope.addMarker = function (lat, lng) {
+    $scope.addMarker = function (location) {
       var marker = new google.maps.Marker({
         map: scope.map,
-        position: new google.maps.LatLng(lat, lng)
+        position: new google.maps.LatLng(location)
       });
 
       $scope.markers.push(marker);
     };
-      $scope.namePlace = [];
 
   var events = {
         places_changed: function (searchBox) {
@@ -146,7 +145,7 @@ var long;
         });
       }
 
-      $scope.$on("location:added", watchCallback);
+      $rootScope.$on("location:added", watchCallback);
       $scope.$on("favorite:added", watchCallback);
       $scope.$on("location:deleted", watchCallback);
       $scope.$on("marker:added", watchCallback);

@@ -5,11 +5,11 @@
 	angular
   .module('survey')
   .controller('SurveyController', function($scope, SurveyService) {
-    $scope.pickASpot = function(destinations) {
-      SurveyService.pickASpot(destinations);
-      console.log('data', destinations);
-    }
 
+		$scope.pickASpot = function() {
+      $scope.randomSpot = SurveyService.pickASpot();
+
+    }
 
   });
 })();

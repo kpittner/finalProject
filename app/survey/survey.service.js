@@ -6,11 +6,9 @@
 
     var pickASpot = function() {
       var todaysSpot = destinations[Math.floor(Math.random() * destinations.length)];
+      console.log('FROM SERVICE', todaysSpot);
       return todaysSpot;
-      console.log(todaysSpot);
     };
-
-    // var destinations = [1, 2, 3, 4, 5, 6, 7];
 
     var destinations = [
       {
@@ -100,6 +98,6 @@
     return {
       pickASpot: pickASpot
     };
-    
+
   });
 })();

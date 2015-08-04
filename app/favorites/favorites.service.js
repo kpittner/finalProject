@@ -5,25 +5,19 @@
   .factory('FavoritesService', function ($http) {
     var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
 
-    var addFavorite = function (place) {
-      $http.post(url, place).success(function (resp) {
-        $rootScope.$broadcast('favortie:added')
-      }).error(function (err) {
-        console.log(err);
-      });
-    };
     var getFavorites = function () {
-      return $http.get(url).then(function (data) {
-        return data.data
+      return $http.get(favoritesUrl).then(function (id) {
+        return id
       })
     };
-
-    var getFavorite = function (id) {
-      return $http.get(url + '/' + id);
-    };
+    function addToFavorites(id) {
+      $http.post(favoritesUrl, id).success(function() {
+        $rootScope.$broadcast('favorite:added');
+      });
+    }
 
     var deleteFavorite = function (id) {
-      $http.delete(url + '/' + id).then(function (response) {
+      $http.delete(favoritesUrl + '/' + id).then(function (response) {
         $rootScope.$broadcast('favorite:deleted');
       });
     };
@@ -32,8 +26,7 @@
 
     return {
       getFavorites: getFavorites,
-      getFavorite: getFavorite,
-      addFavorite: addFavorite,
+      addToFavorites: addToFavorites,
       deleteFavorite: deleteFavorite
     };
   });

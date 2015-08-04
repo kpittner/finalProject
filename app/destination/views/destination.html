@@ -20,9 +20,9 @@
             <input type="text" ng-model="flightOptions.numAdults" class="numAdults" placeholder="How Many?">
             <button class="submit" type="submit">Let's Go!</button>
           </form>
-          <div class="myMapRow" ng-repeat="flight in flights" data-id="{{flightObj.id}}">
+          <div class="myMapRow" ng-repeat="flight in flights" data-id="{{flights.id}}">
             <div class="individualPlace">
-              <h2>{{flightObj.airline}}</h2>
+              <h2>{{flights.airline}}</h2>
             </div>
           </div>
         </div>
