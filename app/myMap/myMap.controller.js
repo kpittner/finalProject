@@ -145,7 +145,7 @@ var long;
         });
       }
 
-      $scope.$on("location:added", watchCallback);
+      // $scope.$on("location:added", watchCallback);
       $scope.$on("favorite:added", watchCallback);
       $scope.$on("location:deleted", watchCallback);
       $scope.$on("marker:added", watchCallback);

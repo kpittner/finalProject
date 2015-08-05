@@ -4,10 +4,6 @@
   .module('destination')
   .controller('DestinationController', function($scope, DestinationService, $routeParams, uiGmapGoogleMapApi, $http) {
 
-    $scope.getFlights = function() {
-      $scope.flights = DestinationService.getFlights();
-    }
-
       $scope.map = {
         center: {
           latitude: 32.792447,
@@ -103,19 +99,51 @@
               "refundable": false
             }
           }
+
           if (sendGoogle == undefined) {
             console.log('sendGoogleNull', status);
             return;
           } else {
-            console.log('sendGoogle', sendGoogle.toJSON);
-          $http.post(flightUrl, sendGoogle).then(function(flights) {
-            console.log(flights);
-          }, function(err) {
-            console.log('FLIGHT ERR', err);
-          });
-          };
+            console.log('sendGoogle', sendGoogle.toString());
+            $http.post(flightUrl, sendGoogle).then(function(flights) {
+              console.log('FLIGHTS:', flights);
+              //flights should be fully functional
+              console.log('STATUS', flights.data.trips.tripOption);
 
-        };
+              // flights array
+              var flightArr = [];
+
+              //get the carrier
+              var carrier = flights.data.trips.data.carrier[0];
+              console.log('carrier', carrier);
+
+              //get the list of trip options
+              var len = flights.data.trips.tripOption.length;
+              for (var i = 0; i < len; i++) {
+                var flightObj = {
+                  id: flights.data.trips.tripOption[i].id,
+                  price: flights.data.trips.tripOption[i].saleTotal,
+                  origin: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].origin,
+                  destination: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].duration,
+                  duration: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].duration,
+                  arrivalTime: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].arrivalTime,
+                  departureTime: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].departureTime,
+                }
+                flightArr.push(flightObj);
+              }
+                console.log('flight array length', flightArr.length);
+                console.log(flightArr);
+                return flightArr;
+
+          }, function(err) {
+              console.log('FLIGHT ERR', err);
+          }); //end of function
+
+      }; //end of if statement
+
+
+
+  };
 
 
 

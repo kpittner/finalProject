@@ -14,15 +14,15 @@
     <div class="panel-body">
       <div class="myMapRow">
           <form class="form" name="myForm" ng-submit="getCheapFlights(flightOptions)">
-            <input type="text" ng-model="flightOptions.startAirport" class="startAirport" placeholder="Origin">
-            <input type="text" ng-model="flightOptions.endAirport" class="endAirport" placeholder="Destination">
-            <input type="text" ng-model="flightOptions.date" class="date" placeholder="YYYY-MM-DD">
-            <input type="text" ng-model="flightOptions.numAdults" class="numAdults" placeholder="How Many?">
+            <input type="text" ng-model="flightOptions.startAirport" class="startAirport" placeholder="Origin" value="CHS">
+            <input type="text" ng-model="flightOptions.endAirport" class="endAirport" placeholder="Destination" value="ATL">
+            <input type="text" ng-model="flightOptions.date" class="date" placeholder="YYYY-MM-DD" value="2015-08-07">
+            <input type="text" ng-model="flightOptions.numAdults" class="numAdults" placeholder="How Many?" value="1">
             <button class="submit" type="submit">Let's Go!</button>
           </form>
-          <div class="myMapRow" ng-repeat="flight in flights" data-id="{{flights.id}}">
+          <div class="myMapRow" ng-repeat="flightObj in flightArr">
             <div class="individualPlace">
-              <h2>{{flights.airline}}</h2>
+              <h2>{{flightObj.price}} Happy! </h2>
             </div>
           </div>
         </div>

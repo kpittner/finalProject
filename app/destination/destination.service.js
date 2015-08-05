@@ -13,34 +13,34 @@
     // }
 
 
-    var getFlights = function () {
-      return $http.post('https://www.googleapis.com/qpxExpress/v1/trips/search?key=AIzaSyCDapvCYK1SRbatOHBLleXBtbqstbPGyQ8').then(function (data) {
-        var flightArr = [];
-        var flights = JSON.parse(data.data.trips.tripOption);
-        console.log('FLIGHTS', flights);
-        flights.results.forEach(function(data) {
-          var flightObj = {
-            id: data.data.trips.tripOption.id,
-            airline: data.data.trips.data.carrier.name,
-            price: data.data.trips.tripOption.pricing.saleTotal,
-            origin: data.data.trips.tripOption.pricing.fare.origin,
-            destination: data.data.trips.tripOption.slice.duration,
-            duration: data.data.trips.tripOption.slice.duration,
-            arrivalTime: data.data.trips.tripOption.slice.segment.leg.arrivalTime,
-            departureTime: data.data.trips.tripOption.slice.segment.leg.departureTime,
-            meal: data.data.trips.tripOption.slice.segment.leg.meal
-          }
+    // var getFlights = function (flights) {
+    //
+    //   console.log("In getFlights");
 
-          flightArr.push(flightObj);
-          console.log(flightArr);
-          return flightArr;
-        });
-      })
-    }
+      //   var flightArr = [];
+      //   console.log('FLIGHTS', flights);
+      //   flights.results.forEach(function(data) {
+      //     var flightObj = {
+      //       id: data.data.trips.tripOption.id,
+      //       airline: data.data.trips.data.carrier.name,
+      //       price: data.data.trips.tripOption.pricing.saleTotal,
+      //       origin: data.data.trips.tripOption.pricing.fare.origin,
+      //       destination: data.data.trips.tripOption.slice.duration,
+      //       duration: data.data.trips.tripOption.slice.duration,
+      //       arrivalTime: data.data.trips.tripOption.slice.segment.leg.arrivalTime,
+      //       departureTime: data.data.trips.tripOption.slice.segment.leg.departureTime,
+      //       meal: data.data.trips.tripOption.slice.segment.leg.meal
+      //     }
+      //
+      //     flightArr.push(flightObj);
+      //     console.log(flightArr);
+      //     return flightArr;
+      //   });
+      // }
 
 
     return {
-      getFlights: getFlights
+      // getFlights: getFlights
     };
   });
 })();
