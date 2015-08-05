@@ -8,10 +8,13 @@ var long;
   .module('myMap')
   .controller('MyMapController', function($scope, $auth, $alert, uiGmapGoogleMapApi, $sce, $routeParams, Account, $rootScope, MyMapService) {
 
+    // $scope.alert = [
+    //   { type: 'success', msg: 'Successfully added to your favorites!' }
+    // ];
+
     $scope.namePlace = [];
 
     MyMapService.getLocations().then(function(data) {
-      console.log('DATA', data)
       data.data.forEach(function(el) {
         $scope.namePlace.push(el);
       })
@@ -23,6 +26,8 @@ var long;
     $scope.deleteLocation = function(id) {
       MyMapService.deleteLocation(id);
     }
+
+
     $scope.addLocation = function(location) {
       MyMapService.addLocation(location);
     }
@@ -46,6 +51,7 @@ var long;
               longitude: -79.936134
           },
           options: { draggable: true },
+          icon: "#00B800",
           events: {
               dragend: function (marker, eventName, args) {
 
@@ -61,13 +67,13 @@ var long;
 
 
     $scope.createMarker = function(location) {
-      console.log("location: ", location);
       var marker = {
           id: 0,
             coords: {
               latitude: location.coord.latitude,
               longitude: location.coord.longitude
           },
+          icon: "#00B800"
       };
 
       map.markers.push(marker)
@@ -76,7 +82,8 @@ var long;
     $scope.addMarker = function (location) {
       var marker = new google.maps.Marker({
         map: scope.map,
-        position: new google.maps.LatLng(location)
+        position: new google.maps.LatLng(location),
+        icon: "#00B800"
       });
 
       $scope.markers.push(marker);
@@ -119,7 +126,8 @@ var long;
                 coords: {
                     latitude: place[0].geometry.location.lat(),
                     longitude: place[0].geometry.location.lng()
-                }
+                },
+                icon: "#00B800"
             };
             $scope.createMarker = function(location) {
               console.log("location: ", location);
@@ -129,6 +137,7 @@ var long;
                       latitude: location.coord.latitude,
                       longitude: location.coord.longitude
                   },
+                  icon: "#00B800"
               };
 
               map.markers.push(marker)

@@ -124,7 +124,7 @@
                   id: flights.data.trips.tripOption[i].id,
                   price: flights.data.trips.tripOption[i].saleTotal,
                   origin: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].origin,
-                  destination: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].duration,
+                  destination: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].destination,
                   duration: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].duration,
                   arrivalTime: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].arrivalTime,
                   departureTime: flights.data.trips.tripOption[i].slice[0].segment[0].leg[0].departureTime,
@@ -132,8 +132,9 @@
                 flightArr.push(flightObj);
               }
                 console.log('flight array length', flightArr.length);
-                console.log(flightArr);
-                return flightArr;
+                console.log('FLIGHTARR', flightArr);
+                // return flightArr;
+                $scope.flightArr = flightArr;
 
           }, function(err) {
               console.log('FLIGHT ERR', err);
@@ -141,9 +142,74 @@
 
       }; //end of if statement
 
+  };
 
+  // calendar stuff
+  $scope.today = function() {
+    $scope.dt = new Date();
+  };
+  $scope.today();
+
+  $scope.clear = function () {
+    $scope.dt = null;
+  };
+
+  $scope.toggleMin = function() {
+    $scope.minDate = $scope.minDate ? null : new Date();
+  };
+  $scope.toggleMin();
+
+  $scope.open = function($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+
+    $scope.opened = true;
+  };
+
+  $scope.dateOptions = {
+    formatYear: 'yyyy',
+    startingDay: 1
+  };
+
+  $scope.formats = ['yyyy/MM/dd'];
+  $scope.format = $scope.formats[0];
+
+  var tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  var afterTomorrow = new Date();
+  afterTomorrow.setDate(tomorrow.getDate() + 2);
+  $scope.events =
+    [
+      {
+        date: tomorrow,
+        status: 'full'
+      },
+      {
+        date: afterTomorrow,
+        status: 'partially'
+      }
+    ];
+
+  $scope.getDayClass = function(date, mode) {
+    if (mode === 'day') {
+      var dayToCheck = new Date(date).setHours(0,0,0,0);
+
+      for (var i=0;i<$scope.events.length;i++){
+        var currentDay = new Date($scope.events[i].date).setHours(0,0,0,0);
+
+        if (dayToCheck === currentDay) {
+          return $scope.events[i].status;
+        }
+      }
+    }
+
+    return '';
 
   };
+
+
+
+
 
 
 

@@ -327,11 +327,12 @@ a {
   background-color: #00B300;
   border-style: groove;
   border-width: medium;
-  margin-left: 335px;
+  margin-left: 330px;
   border-color: #00B300;
   color: white;
   transition: .5s;
   border-radius: 5px;
+  margin-top: 50px;
 }
 
 .go:hover {
@@ -339,7 +340,7 @@ a {
   background-color: white;
   color: #00B300;
   transition: .5s;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .been {
@@ -348,6 +349,35 @@ a {
   border-width: medium;
   border-color: #FB000D;
   color: white;
+  border-radius: 5px;
+  transition: .5s;
+}
+
+.been:hover {
+  border-color: #FB000D;
+  background-color: white;
+  color: #FB000D;
+  transition: .5s;
+  font-size: 14px;
+}
+
+.arrivalTime, .departureTime {
+  text-align: center;
+  font-size: 12px;
+  margin-top: -40px;
+}
+
+.buyMe {
+  float: right;
+  margin-top: -80px;
+  margin-right: 10px;
+}
+
+.price {
+  float: right;
+  font-size: 15px;
+  margin-top: -20px;
+  margin-right: 10px;
 }
 
 .individualPlace h2, .description {
@@ -355,8 +385,16 @@ a {
   width: 93%;
 }
 
-.fa-3x {
+.fa-2x {
   float: right;
+  margin-top: -25px;
+  margin-right: 10px;
+}
+
+.direction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .btn-success {

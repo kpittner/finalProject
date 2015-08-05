@@ -280,12 +280,13 @@ a {
   background-color: #00B300;
   border-style: groove;
   border-width: medium;
-  margin-left: 335px;
+  margin-left: 330px;
   border-color: #00B300;
   color: white;
   -webkit-transition: .5s;
           transition: .5s;
-  border-radius: 5px; }
+  border-radius: 5px;
+  margin-top: 50px; }
 
 .go:hover {
   border-color: #00B300;
@@ -293,21 +294,65 @@ a {
   color: #00B300;
   -webkit-transition: .5s;
           transition: .5s;
-  font-size: 15px; }
+  font-size: 14px; }
 
 .been {
   background-color: #FB000D;
   border-style: groove;
   border-width: medium;
   border-color: #FB000D;
-  color: white; }
+  color: white;
+  border-radius: 5px;
+  -webkit-transition: .5s;
+          transition: .5s; }
+
+.been:hover {
+  border-color: #FB000D;
+  background-color: white;
+  color: #FB000D;
+  -webkit-transition: .5s;
+          transition: .5s;
+  font-size: 14px; }
+
+.arrivalTime, .departureTime {
+  text-align: center;
+  font-size: 12px;
+  margin-top: -40px; }
+
+.buyMe {
+  float: right;
+  margin-top: -80px;
+  margin-right: 10px; }
+
+.price {
+  float: right;
+  font-size: 15px;
+  margin-top: -20px;
+  margin-right: 10px; }
 
 .individualPlace h2, .description {
   text-align: center;
   width: 93%; }
 
-.fa-3x {
-  float: right; }
+.fa-2x {
+  float: right;
+  margin-top: -25px;
+  margin-right: 10px; }
+
+.direction {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 
 .btn-success {
   background-color: #0f9d58; }

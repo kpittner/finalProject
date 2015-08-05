@@ -3,8 +3,8 @@
   angular
     .module('myMap')
     .factory('MyMapService', function($http, $rootScope) {
-      var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
-      var url = 'http://tiy-fee-rest.herokuapp.com/collections/mydestinations'
+      var favoritesUrl = 'api/collection/mymapfavorites';
+      var url = '/api/collections/mydestinations'
       // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
 
@@ -18,8 +18,8 @@
           $rootScope.$broadcast('location:deleted');
         });
       }
-      function addMarkerGreen(lat, long) {
-        $http.post(url, lat, long).then(function() {
+      function addMarkerGreen(coord) {
+        $http.post(url, coord).then(function() {
           $rootScope.$broadcast('marker:added');
         });
       }

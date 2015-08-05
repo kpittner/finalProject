@@ -3,7 +3,7 @@
   angular
   .module('favorites')
   .factory('FavoritesService', function ($http) {
-    var favoritesUrl = 'http://tiy-fee-rest.herokuapp.com/collections/mymapfavorites';
+    var favoritesUrl = 'api/collections/mymapfavorites';
 
     var getFavorites = function () {
       return $http.get(favoritesUrl).then(function (id) {
