@@ -12,6 +12,7 @@ var long;
     //   { type: 'success', msg: 'Successfully added to your favorites!' }
     // ];
 
+
     $scope.namePlace = [];
 
     MyMapService.getLocations().then(function(data) {
@@ -20,8 +21,12 @@ var long;
       })
     })
 
+
     $scope.addMarkerGreen = function(wannago) {
       MyMapService.addMarkerGreen(wannago);
+    }
+    $scope.addMarkerRed = function(been) {
+      MyMapService.addMarkerRed(been);
     }
     $scope.deleteLocation = function(id) {
       MyMapService.deleteLocation(id);
@@ -50,8 +55,7 @@ var long;
               latitude: 32.792447,
               longitude: -79.936134
           },
-          options: { draggable: true },
-          icon: "#00B800",
+          options: { draggable: false },
           events: {
               dragend: function (marker, eventName, args) {
 
@@ -73,7 +77,6 @@ var long;
               latitude: location.coord.latitude,
               longitude: location.coord.longitude
           },
-          icon: "#00B800"
       };
 
       map.markers.push(marker)
@@ -82,12 +85,14 @@ var long;
     $scope.addMarker = function (location) {
       var marker = new google.maps.Marker({
         map: scope.map,
-        position: new google.maps.LatLng(location),
-        icon: "#00B800"
+        position: new google.maps.LatLng(location)
       });
 
       $scope.markers.push(marker);
     };
+
+
+
 
   var events = {
         places_changed: function (searchBox) {
@@ -127,7 +132,6 @@ var long;
                     latitude: place[0].geometry.location.lat(),
                     longitude: place[0].geometry.location.lng()
                 },
-                icon: "#00B800"
             };
             $scope.createMarker = function(location) {
               console.log("location: ", location);
@@ -137,11 +141,11 @@ var long;
                       latitude: location.coord.latitude,
                       longitude: location.coord.longitude
                   },
-                  icon: "#00B800"
               };
-
-              map.markers.push(marker)
+              map.markers.push(marker);
             };
+
+
 
         }
     };

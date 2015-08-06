@@ -3,8 +3,7 @@
   angular
     .module('myMap')
     .factory('MyMapService', function($http, $rootScope) {
-      var favoritesUrl = 'api/collection/mymapfavorites';
-      var url = '/api/collections/mydestinations'
+      var url = '/api/collections/mydestinations';
       // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
 
@@ -19,6 +18,11 @@
         });
       }
       function addMarkerGreen(coord) {
+        $http.post(url, coord).then(function() {
+          $rootScope.$broadcast('marker:added');
+        });
+      }
+      function addMarkerRed(coord) {
         $http.post(url, coord).then(function() {
           $rootScope.$broadcast('marker:added');
         });

@@ -10,8 +10,8 @@
     // FavoritesService.getFavorite($routeParams.id).then(function(place) {
     //   $scope.favorite = place.data;
     // });
-    $scope.addToFavorites = function (id) {
-      FavoritesService.addFavorite(id);
+    $scope.addToFavorites = function (placeObject) {
+      FavoritesService.addToFavorites(placeObject);
     };
     $scope.deleteFavorite = function(id) {
       FavoritesService.delete(id);
