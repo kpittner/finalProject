@@ -27,9 +27,9 @@
     $scope.deleteFromFavorites = function(_id) {
       FavoritesService.deleteFromFavorites(_id);
     };
-    // $scope.addFavorites = function(id) {
-    //   FavoritesService.addFavorites(id);
-    // };
+
+    
+
     var watchCallback = function (data) {
         FavoritesService.getFavorites().then(function (data) {
           $scope.favorites = data;
