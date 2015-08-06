@@ -7,13 +7,20 @@
 
     var getFavorites = function (data) {
       return $http.get(favoritesUrl, data).then(function(data) {
-        console.log('ID',data);
         return data;
       })
     };
 
-    var deleteFavorite = function (_id) {
-      $http.delete(favoritesUrl, _id).then(function (response) {
+    var getFavorite = function (data) {
+      return $http.get(favoritesUrl, data).then(function(data) {
+        return data;
+      })
+    }
+
+    var deleteFromFavorites = function (_id) {
+      var deleteUrl = favoritesUrl + '/' + (_id);
+      console.log('url', deleteUrl);
+      $http.delete(deleteUrl).then(function() {
         $rootScope.$broadcast('favorite:deleted');
       });
     };
@@ -22,7 +29,8 @@
 
     return {
       getFavorites: getFavorites,
-      deleteFavorite: deleteFavorite
+      getFavorite: getFavorite,
+      deleteFromFavorites: deleteFromFavorites
     };
   });
 })();

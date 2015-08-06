@@ -155,9 +155,9 @@ var long;
 
     $scope.searchbox = { template: 'searchbox.tpl.html', events: events };
 
-    var watchCallback = function (locations) {
-        MyMapService.getLocations().success(function (location) {
-          $scope.locations = location;
+    var watchCallback = function (namePlace) {
+        MyMapService.getLocations().success(function (placeObject) {
+          $scope.namePlace = placeObject;
         });
       }
 
