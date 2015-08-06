@@ -3,7 +3,8 @@
   angular
     .module('myMap')
     .factory('MyMapService', function($http, $rootScope) {
-      var url = '/api/collections/mydestinations';
+      var url = '/api/collections/mydestinations/';
+      var favoritesUrl = 'api/collections/favorites/';
       // var detailUrl = 'https://maps.googleapis.com/maps/api/place/details/json?reference=';
 
 
@@ -12,8 +13,15 @@
           $rootScope.$broadcast('location:added');
         });
       }
-      function deleteLocation(id) {
-        return $http.delete(url + '/' + id).success(function() {
+      var addToFavorites = function(place) {
+        console.log("ID", place);
+        $http.post(favoritesUrl, place).success(function() {
+          $rootScope.$broadcast('favorite:added');
+        })
+      }
+      var deleteFromMyMap = function(_id) {
+        var deleteUrl = url.concat(_id);
+        $http.delete(deleteUrl).success(function() {
           $rootScope.$broadcast('location:deleted');
         });
       }
@@ -34,8 +42,9 @@
 
       return {
         addLocation: addLocation,
+        addToFavorites: addToFavorites,
         getLocations: getLocations,
-        deleteLocation: deleteLocation,
+        deleteFromMyMap: deleteFromMyMap,
         addMarkerGreen: addMarkerGreen
       };
 

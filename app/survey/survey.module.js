@@ -2,7 +2,8 @@
   'use strict';
   angular
     .module('survey', [
-      'ngRoute'
+      'ngRoute',
+      'ui.bootstrap.modal'
     ])
 
   .config(function($routeProvider) {

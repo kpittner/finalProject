@@ -9,7 +9,8 @@ angular.module('MyApp', [
   'favorites',
   'destination',
   'uiGmapgoogle-maps',
-  'survey'
+  'survey',
+  'ui.bootstrap'
 ])
 
 .config(function($routeProvider) {

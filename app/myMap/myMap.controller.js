@@ -21,18 +21,21 @@ var long;
       })
     })
 
-
+    $scope.addToFavorites = function(place) {
+      MyMapService.addToFavorites(place);
+    }
     $scope.addMarkerGreen = function(wannago) {
       MyMapService.addMarkerGreen(wannago);
     }
     $scope.addMarkerRed = function(been) {
       MyMapService.addMarkerRed(been);
     }
-    $scope.deleteLocation = function(id) {
-      MyMapService.deleteLocation(id);
+    $scope.deleteFromMyMap = function(_id) {
+      MyMapService.deleteFromMyMap(_id);
     }
-
-
+    $scope.getLocations = function(locations) {
+      MyMapService.getLocations(locations);
+    }
     $scope.addLocation = function(location) {
       MyMapService.addLocation(location);
     }
@@ -158,7 +161,7 @@ var long;
         });
       }
 
-      // $scope.$on("location:added", watchCallback);
+      $scope.$on("location:added", watchCallback);
       $scope.$on("favorite:added", watchCallback);
       $scope.$on("location:deleted", watchCallback);
       $scope.$on("marker:added", watchCallback);

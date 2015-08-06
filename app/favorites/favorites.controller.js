@@ -4,15 +4,12 @@
   .module('favorites')
   .controller('FavoritesController', function ($scope, FavoritesService, $routeParams) {
 
-    FavoritesService.getFavorites().then(function(favorites) {
-      $scope.favorites = favorites;
+    FavoritesService.getFavorites().then(function(data) {
+      $scope.favorites = data;
     });
-    // FavoritesService.getFavorite($routeParams.id).then(function(place) {
-    //   $scope.favorite = place.data;
-    // });
-    $scope.addToFavorites = function (placeObject) {
-      FavoritesService.addToFavorites(placeObject);
-    };
+    $scope.getFavorites = function(data) {
+      FavoritesService.getFavorites(data);
+    }
     $scope.deleteFavorite = function(id) {
       FavoritesService.delete(id);
     };

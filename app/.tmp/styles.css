@@ -67,7 +67,8 @@ a {
 .panel {
   border-color: #cfd9D7;
   border-radius: 2px;
-  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 8px 17px rgba(0, 0, 0, 0.2);
+  opacity: 0.75; }
 
 .panel-body {
   height: 630px;
@@ -280,7 +281,7 @@ a {
   background-color: #00B300;
   border-style: groove;
   border-width: medium;
-  margin-left: 330px;
+  margin-left: 380px;
   border-color: #00B300;
   color: white;
   -webkit-transition: .5s;
@@ -321,17 +322,34 @@ a {
 .buyMe {
   float: right;
   margin-top: -90px;
-  margin-right: 10px; }
+  margin-right: 10px;
+  border-radius: 5px;
+  border-color: #098ADD;
+  border-style: groove;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px;
+  margin-left: 5%;
+  -webkit-transition: .5s;
+          transition: .5s; }
+
+.buyMe:hover {
+  background-color: #098ADD;
+  color: white;
+  -webkit-transition: .5s;
+          transition: .5s; }
 
 .price {
   float: right;
   font-size: 15px;
-  margin-top: -20px;
+  margin-top: -50px;
   margin-right: 10px; }
 
 .individualPlace h2, .description {
   text-align: center;
   width: 93%; }
+
+.fa-1x {
+  padding: 25px; }
 
 .fa-2x {
   float: right;
@@ -351,7 +369,8 @@ a {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
-          justify-content: center; }
+          justify-content: center;
+  margin-top: -20px; }
 
 .btn-success {
   background-color: #0f9d58; }
