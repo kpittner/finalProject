@@ -18,17 +18,16 @@ var long;
     MyMapService.getLocations().then(function(data) {
       data.data.forEach(function(el) {
         $scope.namePlace.push(el);
+        console.log('adding location obj', el.icon);
       })
     })
 
     $scope.addToFavorites = function(place) {
       MyMapService.addToFavorites(place);
     }
-    $scope.addMarkerGreen = function(wannago) {
-      MyMapService.addMarkerGreen(wannago);
-    }
-    $scope.addMarkerRed = function(been) {
-      MyMapService.addMarkerRed(been);
+    $scope.update = function(location) {
+      console.log('scope update');
+      MyMapService.update(location);
     }
     $scope.deleteFromMyMap = function(_id) {
       MyMapService.deleteFromMyMap(_id);
@@ -45,10 +44,10 @@ var long;
 
     $scope.map = {
       center: {
-        latitude: 32.792447,
-        longitude: -79.936134
+        latitude: 50,
+        longitude: -20
       },
-      zoom: 8,
+      zoom: 3,
       markers: []
     };
 
@@ -58,12 +57,13 @@ var long;
               latitude: 32.792447,
               longitude: -79.936134
           },
+          title: 0,
           options: { draggable: false },
+          icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
           events: {
               dragend: function (marker, eventName, args) {
 
                   $scope.marker.options = {
-                      draggable: true,
                       labelContent: "lat: " + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
                       labelAnchor: "100 0",
                       labelClass: "marker-labels"
@@ -73,26 +73,30 @@ var long;
       };
 
 
-    $scope.createMarker = function(location) {
-      var marker = {
-          id: 0,
-            coords: {
-              latitude: location.coord.latitude,
-              longitude: location.coord.longitude
-          },
-      };
-
-      map.markers.push(marker)
-    };
-
-    $scope.addMarker = function (location) {
-      var marker = new google.maps.Marker({
-        map: scope.map,
-        position: new google.maps.LatLng(location)
-      });
-
-      $scope.markers.push(marker);
-    };
+    // $scope.createMarker = function(location) {
+    //   console.log('createMarker');
+    //   var marker = {
+    //       id: 0,
+    //         coords: {
+    //           latitude: location.coord.latitude,
+    //           longitude: location.coord.longitude
+    //       },
+    //       icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    //   };
+    //
+    //   map.markers.push(marker)
+    // };
+    //
+    // $scope.addMarker = function (location) {
+    //   console.log('addMarker');
+    //   var marker = new google.maps.Marker({
+    //     map: scope.map,
+    //     position: new google.maps.LatLng(location),
+    //     icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    //   });
+    //
+    //   $scope.markers.push(marker);
+    // };
 
 
 
@@ -109,44 +113,50 @@ var long;
 
 
             console.log('place', lat, long, place);
+
             var newPlace = {
               name: place[0].formatted_address,
+              title: 0,
               coords: {
                 latitude: place[0].geometry.location.lat(),
                 longitude: place[0].geometry.location.lng()
               },
-              id: place[0].place_id
+              id: place[0].place_id,
+              icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
             };
 
             $scope.namePlace.push(newPlace);
-            console.log($scope.namePlace);
+            console.log('scope nameplace', $scope.namePlace);
+            console.log('title', newPlace.title);
 
 
-            $scope.map = {
-                "center": {
-                    "latitude": place[0].geometry.location.lat(),
-                    "longitude": place[0].geometry.location.lng()
-                },
-                "zoom": 12
-            };
-            $scope.marker = {
-                id: 0,
-                coords: {
-                    latitude: place[0].geometry.location.lat(),
-                    longitude: place[0].geometry.location.lng()
-                },
-            };
-            $scope.createMarker = function(location) {
-              console.log("location: ", location);
-              var marker = {
-                  id: 0,
-                    coords: {
-                      latitude: location.coord.latitude,
-                      longitude: location.coord.longitude
-                  },
-              };
-              map.markers.push(marker);
-            };
+            // $scope.map = {
+            //     "center": {
+            //         "latitude": place[0].geometry.location.lat(),
+            //         "longitude": place[0].geometry.location.lng()
+            //     },
+            //     "zoom": 12
+            // };
+            // $scope.marker = {
+            //     id: 0,
+            //     coords: {
+            //         latitude: place[0].geometry.location.lat(),
+            //         longitude: place[0].geometry.location.lng()
+            //     },
+            //     icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            // };
+            // $scope.createMarker = function(location) {
+            //   console.log("location: ", location);
+            //   var marker = {
+            //       id: 0,
+            //         coords: {
+            //           latitude: location.coord.latitude,
+            //           longitude: location.coord.longitude
+            //       },
+            //       icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            //   };
+            //   map.markers.push(marker);
+            // };
 
 
 
@@ -165,6 +175,7 @@ var long;
       $scope.$on("favorite:added", watchCallback);
       $scope.$on("location:deleted", watchCallback);
       $scope.$on("marker:added", watchCallback);
+      $scope.$on("location:updated", watchCallback);
 
 });
 

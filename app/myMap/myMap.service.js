@@ -9,9 +9,20 @@
 
 
       var addLocation = function(location) {
+        location.icon= 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+        console.log('icon', location.icon);
+        location.title = 0;
         $http.post(url, location).success(function() {
           $rootScope.$broadcast('location:added');
         });
+      }
+      var update = function(location) {
+        console.log('Been there');
+        console.log('old title', location.title);
+        location.title = 1;
+        console.log('markers', $rootScope.map.length);
+        console.log('new title', location.title);
+        $rootScope.$broadcast('location:updated');
       }
       var addToFavorites = function(place) {
         console.log("ID", place);
@@ -25,16 +36,7 @@
           $rootScope.$broadcast('location:deleted');
         });
       }
-      function addMarkerGreen(coord) {
-        $http.post(url, coord).then(function() {
-          $rootScope.$broadcast('marker:added');
-        });
-      }
-      function addMarkerRed(coord) {
-        $http.post(url, coord).then(function() {
-          $rootScope.$broadcast('marker:added');
-        });
-      }
+
       var getLocations = function() {
         return $http.get(url);
       }
@@ -45,7 +47,7 @@
         addToFavorites: addToFavorites,
         getLocations: getLocations,
         deleteFromMyMap: deleteFromMyMap,
-        addMarkerGreen: addMarkerGreen
+        update: update
       };
 
     });
